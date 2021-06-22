@@ -3,7 +3,7 @@
 BEGIN;
 
 --Domaine pour avoir un nombre réel positif
-CREATE DOMAIN posreal AS REAL CHECK (VALUE > 0);
+CREATE DOMAIN posreal AS REAL CHECK (VALUE >= 0);
 
 --Domaine pour controler le format de l'email
 CREATE DOMAIN format_email AS TEXT CHECK (
@@ -29,7 +29,7 @@ CREATE TABLE member (
 CREATE TABLE saving (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     label TEXT NOT NULL UNIQUE,
-    amount posreal NOT NULL,
+    amount posreal NOT NULL DEFAULT 0,
     member_id INT NOT NULL REFERENCES member(id)
 );
 
