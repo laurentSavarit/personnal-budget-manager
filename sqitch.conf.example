@@ -3,6 +3,6 @@
 	top_dir = migrations
 	# plan_file = migrations/sqitch.plan
 [engine "pg"]
-	target = db:pg:portfolio
+	target = db:pg:personnal_budget_manager
 	# registry = sqitch
 	# client = psql
