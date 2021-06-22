@@ -1,0 +1,14 @@
+DÉPENSE: reference interne, nom, montant
+à dépenser, 0N MEMBRES, 11 DÉPENSE: date de la dépense
+MEMBRES: _nom, prénom, _email, mot de passe, role
+possède un, 0N MEMBRES, 11 EPARGNE
+
+appartient1, 01 DÉPENSE, 0N CATÉGORIE
+CATÉGORIE: nom
+à gagner, 0N MEMBRES, 11 REVENU: date du revenu
+EPARGNE: nom,montant
+
+:
+appartient, 01 REVENU, 0N CATÉGORIE
+REVENU: reference interne, nom, montant
+:

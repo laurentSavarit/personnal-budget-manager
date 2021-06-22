@@ -1,0 +1,16 @@
+%%mocodo
+:
+DÉPENSE: reference interne, nom, montant, #email->MEMBRES->email, date de la dépense, nom.1
+:::
+MEMBRES: nom, prénom, _email, mot de passe, role
+:::
+
+
+::::::
+EPARGNE: nom, montant, #email->MEMBRES->email
+:
+
+
+:::::
+REVENU: reference interne, nom, montant, nom.1, #email->MEMBRES->email, date du revenu
+:::
