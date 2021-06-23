@@ -50,18 +50,22 @@ class Member {
         try{
 
             const sqlQuery = {
-                text:"INSERT INTO member(first_name,last_name,email,password,role) VALUES($1,$2,$3,$4,$5) RETURNING *;",
-                values:[this.first_name,this.last_name,this.email,this.password,this.role]
+                text:"SELECT id FROM insert_member($1);",
+                values:[this]
             };
 
             if(this.id){
-                sqlQuery.text = "UPDATE member SET first_name=$1,last_name=$2,email=$3,password=$4,role=$5 WHERE id=$6 RETURNING *";
-                sqlQuery.values.push(parseInt(this.id,10))
+                sqlQuery.text = "SELECT update_member($1);";
             }
 
             const {rows} = await pool.query(sqlQuery);
 
-            return rows[0] ? this : new Error("internal error...");
+            if(!this.id){
+                this.id = rows[0].id;
+                return this;
+            }else{
+                return;
+            }
 
         }catch(err){
             if(err.detail){

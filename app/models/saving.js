@@ -50,18 +50,22 @@ class Saving {
         try{
 
             const sqlQuery = {
-                text:"INSERT INTO saving(label,amount,member_id) VALUES($1,$2,$3) RETURNING *;",
-                values:[this.label,parseInt(this.amount,10),parseInt(this.member_id,10)]
+                text:"SELECT id FROM insert_saving($1);",
+                values:[this]
             };
 
             if(this.id){
-                sqlQuery.text = "UPDATE saving SET label=$1,amount=$2,member_id=$3 WHERE id=$4 RETURNING *";
-                sqlQuery.values.push(parseInt(this.id,10))
+                sqlQuery.text = "SELECT update_saving($1);";
             }
 
             const {rows} = await pool.query(sqlQuery);
 
-            return rows[0] ? this : new Error("internal error...");
+            if(!this.id){
+                this.id = rows[0].id;
+                return this;
+            }else{
+                return;
+            }
 
         }catch(err){
             if(err.detail){

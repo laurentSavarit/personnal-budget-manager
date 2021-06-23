@@ -50,18 +50,22 @@ class Income {
         try{
 
             const sqlQuery = {
-                text:"INSERT INTO income(intern_ref,label,amount,date,member_id,category_id) VALUES($1,$2,$3,$4,$5,$6) RETURNING *;",
-                values:[this.intern_ref,this.label,parseInt(this.amount,10),this.date,parseInt(this.member_id,10),parseInt(this.category_id,10)]
+                text:"SELECT id FROM insert_income($1);",
+                values:[this]
             };
 
             if(this.id){
-                sqlQuery.text = "UPDATE income SET intern_ref=$1,label=$2,amount=$3,date=$4,member_id=$5,category_id=$6 WHERE id=$7 RETURNING *";
-                sqlQuery.values.push(parseInt(this.id,10))
+                sqlQuery.text = "SELECT update_income($1);";
             }
 
             const {rows} = await pool.query(sqlQuery);
 
-            return rows[0] ? this : new Error("internal error...");
+            if(!this.id){
+                this.id = rows[0].id;
+                return this;
+            }else{
+                return;
+            }
 
         }catch(err){
             if(err.detail){

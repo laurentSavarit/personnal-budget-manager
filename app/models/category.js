@@ -50,13 +50,12 @@ class Category {
         try{
 
             const sqlQuery = {
-                text:"INSERT INTO category(label) VALUES($1) RETURNING *;",
-                values:[this.label]
+                text:"SELECT id FROM insert_category($1);",
+                values:[this]
             };
 
             if(this.id){
-                sqlQuery.text = "UPDATE category SET label=$1 WHERE id=$2 RETURNING *";
-                sqlQuery.values.push(parseInt(this.id,10))
+                sqlQuery.text = "SELECT update_category($1);";
             }
 
             const {rows} = await pool.query(sqlQuery);

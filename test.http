@@ -1,7 +1,7 @@
 @baseUrl = http://localhost:3000/v1
 
 ###ROUTE GET pour tous les modèles
-@name = categories
+@name = spents
 GET {{baseUrl}}/{{name}}
 
 ###ROUTE POST
@@ -9,7 +9,7 @@ POST {{baseUrl}}/{{name}}
 Content-Type: application/json
 
 {
-    "label":"cantine"
+    "label":"toto"
 }
 
 ###ROUTE PATCH
@@ -17,9 +17,14 @@ PATCH {{baseUrl}}/{{name}}
 Content-Type: application/json
 
 {
-    "label":"garderie",
-    "id":6
-}
+    "id": 2,
+    "intern_ref": "spent-demo2",
+    "label": "facture edf",
+    "amount": 236.95,
+    "date": "2021-06-22T18:47:10.676Z",
+    "member_id": 2,
+    "category_id": 3
+  }
 
 ### DELETE
 DELETE {{baseUrl}}/category/6
