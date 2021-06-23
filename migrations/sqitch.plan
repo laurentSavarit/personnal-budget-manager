@@ -3,3 +3,4 @@
 
 create_tables 2021-06-22T15:09:24Z laurentSavarit <laurent.savarit@laposte.net> # creation des tables
 create_functions 2021-06-23T14:18:23Z laurentSavarit <laurent.savarit@laposte.net> # fonctions pour insert et update
+create_views 2021-06-23T16:00:18Z laurentSavarit <laurent.savarit@laposte.net> # create views sql for findall and findone
