@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:3000/v1
+
+###ROUTE GET pour tous les modèles
+@name = categories
+GET {{baseUrl}}/{{name}}
+
+###ROUTE POST
+POST {{baseUrl}}/{{name}}
+Content-Type: application/json
+
+{
+    "label":"cantine"
+}
+
+###ROUTE PATCH
+PATCH {{baseUrl}}/{{name}}
+Content-Type: application/json
+
+{
+    "label":"garderie",
+    "id":6
+}
+
+### DELETE
+DELETE {{baseUrl}}/category/6

@@ -29,6 +29,34 @@ const memberController = {
             console.error(err);
             res.status(500).json(err);
         }
+    },
+
+    save: async (req,res)=>{
+
+        try{
+            const newMember = new Member(req.body);
+
+            const result = await newMember.save();
+
+            return result ? res.status(201).json(result) : res.status(204).end();
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
+    },
+
+    delete: async (req,res,next)=>{
+        try{
+            const {id} = req.params;
+            const deleteMember = await Member.delete(id);
+
+            return deleteMember ? res.status(204).end() : new Error("delete error");
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
     }
 
 }

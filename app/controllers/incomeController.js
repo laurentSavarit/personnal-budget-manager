@@ -29,6 +29,33 @@ const incomeController = {
             console.error(err);
             res.status(500).json(err);
         }
+    },
+    save: async (req,res)=>{
+
+        try{
+            const newIncome = new Income(req.body);
+
+            const result = await newIncome.save();
+
+            return result ? res.status(201).json(result) : res.status(204).end();
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
+    },
+
+    delete: async (req,res,next)=>{
+        try{
+            const {id} = req.params;
+            const deleteIncome = await Income.delete(id);
+
+            return deleteIncome ? res.status(204).end() : new Error("delete error");
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
     }
 
 }

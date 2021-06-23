@@ -61,7 +61,12 @@ class Category {
 
             const {rows} = await pool.query(sqlQuery);
 
-            return rows[0] ? this : new Error("internal error...");
+            if(!this.id){
+                this.id = rows[0].id;
+                return this;
+            }else{
+                return;
+            }
 
         }catch(err){
             if(err.detail){

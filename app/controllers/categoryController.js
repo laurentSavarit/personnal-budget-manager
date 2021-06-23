@@ -31,29 +31,14 @@ const categoryController = {
         }
     },
 
-    insert: async (req,res)=>{
+    save: async (req,res)=>{
 
         try{
             const newCategory = new Category(req.body);
 
             const result = await newCategory.save();
 
-            return result ? res.status(201).json(result) : new Error("insert error");
-
-        }catch(err){
-            console.error(err);
-            res.status(500).json(err);
-        }
-    },
-
-    update: async (req,res)=>{
-
-        try{
-            const updateCategory = new Category(req.body);
-
-            const result = await updateCategory.save();
-
-            return result ? res.status(201).json(result) : new Error("update error");
+            return result ? res.status(201).json(result) : res.status(204).end();
 
         }catch(err){
             console.error(err);

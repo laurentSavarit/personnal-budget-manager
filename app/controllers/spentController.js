@@ -29,6 +29,34 @@ const spentController = {
             console.error(err);
             res.status(500).json(err);
         }
+    },
+
+    save: async (req,res)=>{
+
+        try{
+            const newSpent = new Spent(req.body);
+
+            const result = await newSpent.save();
+
+            return result ? res.status(201).json(result) : res.status(204).end();
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
+    },
+
+    delete: async (req,res,next)=>{
+        try{
+            const {id} = req.params;
+            const deleteSpent = await Spent.delete(id);
+
+            return deleteSpent ? res.status(204).end() : new Error("delete error");
+
+        }catch(err){
+            console.error(err);
+            res.status(500).json(err);
+        }
     }
 
 }
