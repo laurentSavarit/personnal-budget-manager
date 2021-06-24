@@ -12,7 +12,7 @@ class Income {
     static async findAll(){
 
         try{
-        const sqlQuery = "SELECT * FROM income;";
+        const sqlQuery = "SELECT * FROM income_with_details;";
         const {rows} = await pool.query(sqlQuery);
 
         return rows.map(row=>new this(row));
@@ -30,7 +30,7 @@ class Income {
 
         try{
         const sqlQuery = {
-            text: "SELECT * FROM income WHERE id=$1;",
+            text: "SELECT * FROM income_with_details WHERE id=$1;",
             values: [id]
         };
         const {rows} = await pool.query(sqlQuery);

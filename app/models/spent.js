@@ -12,7 +12,7 @@ class Spent {
     static async findAll(){
 
         try{
-        const sqlQuery = "SELECT * FROM spent;";
+        const sqlQuery = "SELECT * FROM spent_with_details;";
         const {rows} = await pool.query(sqlQuery);
 
         return rows.map(row=>new this(row));
@@ -30,7 +30,7 @@ class Spent {
 
         try{
         const sqlQuery = {
-            text: "SELECT * FROM spent WHERE id=$1;",
+            text: "SELECT * FROM spent_with_details WHERE id=$1;",
             values: [id]
         };
         const {rows} = await pool.query(sqlQuery);

@@ -1,7 +1,7 @@
 @baseUrl = http://localhost:3000/v1
 
 ###ROUTE GET pour tous les modèles
-@name = spents
+@name = incomes
 GET {{baseUrl}}/{{name}}
 
 ###ROUTE POST

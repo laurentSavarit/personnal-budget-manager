@@ -17,7 +17,7 @@ CREATE VIEW saving_with_details AS (
     SELECT 
     saving.*,(member.first_name ||' '|| member.last_name) AS utilisateur
     FROM saving
-    JOIN member ON income.member_id = member.id
+    JOIN member ON saving.member_id = member.id
 );
 
 
@@ -26,7 +26,7 @@ CREATE VIEW income_with_details AS (
     SELECT 
     income.*,(member.first_name ||' '|| member.last_name) AS utilisateur, 
     category.label AS categorie 
-    FROM "income" JOIN member ON income.member_id = member.id
+    FROM income JOIN member ON member.id = income.member_id
     JOIN category ON income.category_id = category.id
 );
 

@@ -12,7 +12,7 @@ class Saving {
     static async findAll(){
 
         try{
-        const sqlQuery = "SELECT * FROM saving;";
+        const sqlQuery = "SELECT * FROM saving_with_details;";
         const {rows} = await pool.query(sqlQuery);
 
         return rows.map(row=>new this(row));
@@ -30,7 +30,7 @@ class Saving {
 
         try{
         const sqlQuery = {
-            text: "SELECT * FROM saving WHERE id=$1;",
+            text: "SELECT * FROM saving_with_details WHERE id=$1;",
             values: [id]
         };
         const {rows} = await pool.query(sqlQuery);
