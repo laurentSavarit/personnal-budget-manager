@@ -3,6 +3,7 @@ const express = require('express');
 const router = require("./app/router");
 const app = express();
 const expressSwagger = require("express-swaggor-generator")(app);
+const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const options = {
