@@ -1,5 +1,7 @@
 const pool = require("../db");
-
+/**
+ * @typedef Category
+ */
 class Category {
 
 
