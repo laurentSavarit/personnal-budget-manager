@@ -2,6 +2,7 @@ const Spent = require("../models/spent");
 
 const spentController = {
 
+    
     getAll: async (_,res)=>{
 
         try{

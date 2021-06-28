@@ -1,5 +1,22 @@
 const pool = require("../db");
 
+/**
+ * @typedef Member 
+ * @property {integer} id.required the member id
+ * @property {string} first_name.required 
+ * @property {string} last_name.required
+ * @property {email} email.required the member email
+ * @property {string} password.required the member password
+ * @property {string} role.required the member role 
+ */
+/**
+ * @typedef memberPost 
+ * @property {string} first_name.required 
+ * @property {string} last_name.required
+ * @property {email} email.required the member email
+ * @property {string} password.required the member password
+ * @property {string} role.required the member role 
+ */
 class Member {
 
 

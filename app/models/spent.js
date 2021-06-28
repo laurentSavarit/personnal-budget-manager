@@ -1,5 +1,24 @@
 const pool = require("../db");
 
+/**
+ * @typedef Spent 
+ * @property {integer} id.required The id income
+ * @property {string} intern_ref.required Intern references of income
+ * @property {string} label.required the label income
+ * @property {number} amount.required the amount of income
+ * @property {timestamptz} date.required the date of income, default now
+ * @property {integer} member_id.required the id of income member
+ * @property {integer} category_id.required the id of income category
+ */
+/**
+ * @typedef spentPost 
+ * @property {string} intern_ref.required Intern references of income
+ * @property {string} label.required the label income
+ * @property {number} amount.required the amount of income
+ * @property {timestamptz} date.required the date of income, default now
+ * @property {integer} member_id.required the id of income member
+ * @property {integer} category_id.required the id of income category
+ */
 class Spent {
 
 

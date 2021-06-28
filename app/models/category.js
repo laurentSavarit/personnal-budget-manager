@@ -1,6 +1,12 @@
 const pool = require("../db");
 /**
  * @typedef Category
+ * @property {integer} id.required the category id
+ * @property {string} label.required the label of category
+ */
+/**
+ * @typedef categoryPost
+ * @property {string} label.required the label of category
  */
 class Category {
 

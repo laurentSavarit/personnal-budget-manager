@@ -1,5 +1,18 @@
 const pool = require("../db");
 
+/**
+ * @typedef Saving 
+ * @property {integer} id.required the id saving
+ * @property {string} label.required the label of saving
+ * @property {number} amount.required the amount of saving, default 0
+ * @property {integer} member_id.required the id of member
+ */
+/**
+ * @typedef savingPost 
+ * @property {string} label.required the label of saving
+ * @property {number} amount.required the amount of saving, default 0
+ * @property {integer} member_id.required the id of member
+ */
 class Saving {
 
 
