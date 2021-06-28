@@ -17,6 +17,12 @@ class Category {
         };
     };
 
+    /**
+     * Find all categories
+     * @static
+     * @async
+     * @returns {[Category]} an array of category instance
+     */
     static async findAll(){
 
         try{
@@ -34,6 +40,13 @@ class Category {
         }
     };
 
+    /**
+     * Find one category by id in BDD
+     * @param {integer} id 
+     * @static
+     * @async
+     * @returns {Category} return one category instance
+     */
     static async findOne(id){
 
         try{
@@ -54,6 +67,11 @@ class Category {
         }
     };
 
+    /**
+     * Save : insert or update in BDD
+     * @async
+     * @returns {Category} if create return an instance of Category
+     */
     async save(){
         try{
 
@@ -84,6 +102,13 @@ class Category {
         }
     };
 
+    /**
+     * Delete a category in BDD by id
+     * @param {integer} id the if of category
+     * @static
+     * @async
+     * @returns {boolean} return true or false
+     */
     static async delete(id){
         try{
 

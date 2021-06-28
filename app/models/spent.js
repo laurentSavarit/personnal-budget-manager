@@ -28,6 +28,12 @@ class Spent {
         };
     };
 
+    /**
+     * Find all spents in BDD
+     * @static
+     * @async
+     * @returns {[Spent]} an array with instances of spents
+     */
     static async findAll(){
 
         try{
@@ -45,6 +51,13 @@ class Spent {
         }
     };
 
+    /**
+     * Find one spent in BDD
+     * @static
+     * @async
+     * @param {integer} id the id of spent 
+     * @returns {Spent} an instance of Spent
+     */
     static async findOne(id){
 
         try{
@@ -65,6 +78,11 @@ class Spent {
         }
     };
 
+    /**
+     * Save: insert or update in BDD
+     * @async
+     * @returns {Spent} return an instance of spent if insert
+     */
     async save(){
         try{
 
@@ -95,7 +113,14 @@ class Spent {
         }
     };
 
-    async delete(id){
+    /**
+     * Delete one spent in BDD by id
+     * @async
+     * @static
+     * @param {integer} id the id of spent 
+     * @returns {boolean} return true or false
+     */
+    static async delete(id){
         try{
 
           const sqlQuery = {

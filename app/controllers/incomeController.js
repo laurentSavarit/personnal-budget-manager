@@ -2,6 +2,13 @@ const Income = require("../models/income");
 
 const incomeController = {
 
+    /**
+     * Get all incomes
+     * @async
+     * @param {request} _ not using
+     * @param {response} res 
+     * @returns {JSON} an array of objects income in JSON
+     */
     getAll: async (_,res)=>{
 
         try{
@@ -15,6 +22,14 @@ const incomeController = {
         }
     },
 
+    /**
+     * Get on incoe by ID
+     * @async
+     * @param {request} req use id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {JSON} object income in json
+     */
     getOneById: async (req,res,next)=>{
 
         try{
@@ -30,6 +45,14 @@ const incomeController = {
             res.status(500).json(err);
         }
     },
+
+    /**
+     * Save: update or create an object income
+     * @async
+     * @param {request} req 
+     * @param {response} res 
+     * @returns {JSON} return a json if create, a status code 204 if update
+     */
     save: async (req,res)=>{
 
         try{
@@ -45,6 +68,14 @@ const incomeController = {
         }
     },
 
+    /**
+     * Delete a income object by id
+     * @async
+     * @param {request} req using the id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {} if success a status code 204
+     */
     delete: async (req,res,next)=>{
         try{
             const {id} = req.params;

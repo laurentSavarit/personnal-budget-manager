@@ -5,6 +5,7 @@ const app = express();
 const expressSwagger = require("express-swagger-generator")(app);
 const cors = require("cors");
 
+//options for express swagger generator
 const options = {
     swaggerDefinition: {
         info: {

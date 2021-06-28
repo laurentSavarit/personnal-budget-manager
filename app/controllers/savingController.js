@@ -2,6 +2,13 @@ const Saving = require("../models/saving");
 
 const savingController = {
 
+    /**
+     * Get all savings
+     * @async
+     * @param {request} _ 
+     * @param {response} res 
+     * @returns {JSON} an array of objects saving
+     */
     getAll: async (_,res)=>{
 
         try{
@@ -15,6 +22,14 @@ const savingController = {
         }
     },
 
+    /**
+     * Get on object saving by id
+     * @async
+     * @param {request} req use id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {JSON} an object json 
+     */
     getOneById: async (req,res,next)=>{
 
         try{
@@ -31,6 +46,13 @@ const savingController = {
         }
     },
 
+    /**
+     * Save: create or update saving
+     * @async
+     * @param {Request} req 
+     * @param {Response} res 
+     * @returns {JSON} return an object json of create, status code 204 if update
+     */
     save: async (req,res)=>{
 
         try{
@@ -46,6 +68,14 @@ const savingController = {
         }
     },
 
+    /**
+     * Delete one saving by id
+     * @async
+     * @param {request} req 
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {} a status code 204 if success
+     */
     delete: async (req,res,next)=>{
         try{
             const {id} = req.params;

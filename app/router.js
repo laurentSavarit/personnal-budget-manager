@@ -251,4 +251,10 @@ router.post("/categories",categoryController.save);
  */
 router.delete("/category/:id",categoryController.delete);
 
+
+
+router.use((_,res)=>res.status(404).json("not found"));
+
+
+
 module.exports = router;

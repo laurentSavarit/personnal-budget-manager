@@ -28,6 +28,12 @@ class Income {
         };
     };
 
+    /**
+     * Find all incomes in BDD
+     * @static
+     * @async
+     * @returns {[Income]} return an array with instances of income
+     */
     static async findAll(){
 
         try{
@@ -45,6 +51,13 @@ class Income {
         }
     };
 
+    /**
+     * Find one income by id in BDD
+     * @async
+     * @static
+     * @param {integer} id the id of income
+     * @returns {Income} an instance of Income
+     */
     static async findOne(id){
 
         try{
@@ -65,6 +78,11 @@ class Income {
         }
     };
 
+    /**
+     * Save: insert or update income in BDD
+     * @async
+     * @returns {Income} return an instance of income if insert
+     */
     async save(){
         try{
 
@@ -95,7 +113,14 @@ class Income {
         }
     };
 
-    async delete(id){
+    /**
+     * Delete in BDD by id
+     * @param {integer} id the id of income
+     * @static
+     * @async
+     * @returns {boolean} return true or false
+     */
+    static async delete(id){
         try{
 
           const sqlQuery = {
