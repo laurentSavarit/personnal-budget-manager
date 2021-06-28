@@ -2,6 +2,13 @@ const Spent = require("../models/spent");
 
 const spentController = {
 
+    /**
+     * Get all spents
+     * @async
+     * @param {request} _ 
+     * @param {response} res 
+     * @returns {JSON} return an array of objects spent
+     */
     getAll: async (_,res)=>{
 
         try{
@@ -15,6 +22,14 @@ const spentController = {
         }
     },
 
+    /**
+     * Get one object spent by id
+     * @async
+     * @param {request} req use id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {JSON} return an object spent
+     */
     getOneById: async (req,res,next)=>{
 
         try{
@@ -31,6 +46,13 @@ const spentController = {
         }
     },
 
+    /**
+     * Save: create or update spent
+     * @async
+     * @param {request} req 
+     * @param {response} res 
+     * @returns {JSON} return an object spent if create, status code 204 if update
+     */
     save: async (req,res)=>{
 
         try{
@@ -46,6 +68,14 @@ const spentController = {
         }
     },
 
+    /**
+     * Delete a object spent by id
+     * @async
+     * @param {request} req use id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {} if success return status code 204
+     */
     delete: async (req,res,next)=>{
         try{
             const {id} = req.params;

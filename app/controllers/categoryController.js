@@ -2,6 +2,13 @@ const Category = require("../models/category");
 
 const categoryController = {
 
+    /**
+     * Get all elements categories
+     * @async
+     * @param {request} _ 
+     * @param {response} res 
+     * @returns {JSON} a json array, contain objects
+     */
     getAll: async (_,res)=>{
 
         try{
@@ -15,6 +22,14 @@ const categoryController = {
         }
     },
 
+    /**
+     * Get one category by id
+     * @async
+     * @param {request} req using id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {JSON} a object json
+     */
     getOneById: async (req,res,next)=>{
 
         try{
@@ -31,6 +46,13 @@ const categoryController = {
         }
     },
 
+    /**
+     * Save : update or create category object
+     * @async
+     * @param {request} req 
+     * @param {response} res 
+     * @returns {JSON} for new object return a json, for update return status 204
+     */
     save: async (req,res)=>{
 
         try{
@@ -46,6 +68,14 @@ const categoryController = {
         }
     },
 
+    /**
+     * Delete one category by id
+     * @async
+     * @param {request} req using id in param of request
+     * @param {response} res 
+     * @param {*} next 
+     * @returns {} return status 204 if success
+     */
     delete: async (req,res,next)=>{
         try{
             const {id} = req.params;

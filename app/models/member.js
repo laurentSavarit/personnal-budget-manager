@@ -1,5 +1,22 @@
 const pool = require("../db");
 
+/**
+ * @typedef Member 
+ * @property {integer} id.required the member id
+ * @property {string} first_name.required 
+ * @property {string} last_name.required
+ * @property {email} email.required the member email
+ * @property {string} password.required the member password
+ * @property {string} role.required the member role 
+ */
+/**
+ * @typedef memberPost 
+ * @property {string} first_name.required 
+ * @property {string} last_name.required
+ * @property {email} email.required the member email
+ * @property {string} password.required the member password
+ * @property {string} role.required the member role 
+ */
 class Member {
 
 
@@ -9,6 +26,12 @@ class Member {
         };
     };
 
+    /**
+     * Find all members in BDD
+     * @static
+     * @async
+     * @returns {[Member]} an array with instances of members
+     */
     static async findAll(){
 
         try{
@@ -26,6 +49,12 @@ class Member {
         }
     };
 
+    /**
+     * Find one member in BDD
+     * @async
+     * @param {integer} id the id of member 
+     * @returns {Member} an instance of Member
+     */
     static async findOne(id){
 
         try{
@@ -46,6 +75,11 @@ class Member {
         }
     };
 
+    /**
+     * Save: insert or update in BDD
+     * @async
+     * @returns {Member} return an instance of Member if insert
+     */
     async save(){
         try{
 
@@ -76,7 +110,13 @@ class Member {
         }
     };
 
-    async delete(id){
+    /**
+     * Delete in BDD by id
+     * @async
+     * @param {integer} id the id of member
+     * @returns {boolean} return true or false
+     */
+    static async delete(id){
         try{
 
           const sqlQuery = {

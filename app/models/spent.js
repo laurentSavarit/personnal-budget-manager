@@ -1,5 +1,24 @@
 const pool = require("../db");
 
+/**
+ * @typedef Spent 
+ * @property {integer} id.required The id income
+ * @property {string} intern_ref.required Intern references of income
+ * @property {string} label.required the label income
+ * @property {number} amount.required the amount of income
+ * @property {timestamptz} date.required the date of income, default now
+ * @property {integer} member_id.required the id of income member
+ * @property {integer} category_id.required the id of income category
+ */
+/**
+ * @typedef spentPost 
+ * @property {string} intern_ref.required Intern references of income
+ * @property {string} label.required the label income
+ * @property {number} amount.required the amount of income
+ * @property {timestamptz} date.required the date of income, default now
+ * @property {integer} member_id.required the id of income member
+ * @property {integer} category_id.required the id of income category
+ */
 class Spent {
 
 
@@ -9,6 +28,12 @@ class Spent {
         };
     };
 
+    /**
+     * Find all spents in BDD
+     * @static
+     * @async
+     * @returns {[Spent]} an array with instances of spents
+     */
     static async findAll(){
 
         try{
@@ -26,6 +51,13 @@ class Spent {
         }
     };
 
+    /**
+     * Find one spent in BDD
+     * @static
+     * @async
+     * @param {integer} id the id of spent 
+     * @returns {Spent} an instance of Spent
+     */
     static async findOne(id){
 
         try{
@@ -46,6 +78,11 @@ class Spent {
         }
     };
 
+    /**
+     * Save: insert or update in BDD
+     * @async
+     * @returns {Spent} return an instance of spent if insert
+     */
     async save(){
         try{
 
@@ -76,7 +113,14 @@ class Spent {
         }
     };
 
-    async delete(id){
+    /**
+     * Delete one spent in BDD by id
+     * @async
+     * @static
+     * @param {integer} id the id of spent 
+     * @returns {boolean} return true or false
+     */
+    static async delete(id){
         try{
 
           const sqlQuery = {

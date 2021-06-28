@@ -1,5 +1,18 @@
 const pool = require("../db");
 
+/**
+ * @typedef Saving 
+ * @property {integer} id.required the id saving
+ * @property {string} label.required the label of saving
+ * @property {number} amount.required the amount of saving, default 0
+ * @property {integer} member_id.required the id of member
+ */
+/**
+ * @typedef savingPost 
+ * @property {string} label.required the label of saving
+ * @property {number} amount.required the amount of saving, default 0
+ * @property {integer} member_id.required the id of member
+ */
 class Saving {
 
 
@@ -9,6 +22,12 @@ class Saving {
         };
     };
 
+    /**
+     * Find all savings in BDD
+     * @async
+     * @static
+     * @returns {[Saving]} return an array with instances of savings
+     */
     static async findAll(){
 
         try{
@@ -26,6 +45,13 @@ class Saving {
         }
     };
 
+    /**
+     * Find one saving by id in BDD
+     * @async
+     * @static
+     * @param {integer} id the id of saving 
+     * @returns {Saving} an instance of Saving
+     */
     static async findOne(id){
 
         try{
@@ -46,6 +72,11 @@ class Saving {
         }
     };
 
+    /**
+     * Save: insert or update in BDD
+     * @async
+     * @returns {Saving} return an instance of saving if insert
+     */
     async save(){
         try{
 
@@ -76,7 +107,12 @@ class Saving {
         }
     };
 
-    async delete(id){
+    /**
+     * Delete in bdd by id
+     * @param {integer} id the id of saving 
+     * @returns {boolean} return true or false
+     */
+    static async delete(id){
         try{
 
           const sqlQuery = {
