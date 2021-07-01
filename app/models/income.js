@@ -34,11 +34,17 @@ class Income {
      * @async
      * @returns {[Income]} return an array with instances of income
      */
-    static async findAll(){
+    static async findAll(memberId = null){
 
         try{
-        const sqlQuery = "SELECT * FROM income_with_details;";
-        const {rows} = await pool.query(sqlQuery);
+        let sqlQuery = "SELECT * FROM income_with_details;";
+        
+
+        if(memberId){
+            sqlQuery = "SELECT * FROM income_with_details WHERE member_id = $1;";
+        }
+
+        const {rows} = await pool.query(sqlQuery,[memberId]);
 
         return rows.map(row=>new this(row));
 
